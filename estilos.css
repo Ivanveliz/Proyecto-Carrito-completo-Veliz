@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Edu+VIC+WA+NT+Beginner&family=Jacques+Francois+Shadow&family=Londrina+Shadow&family=Noto+Sans+Mono&family=Nunito:wght@300&family=Oswald:wght@200;400&family=Roboto&display=swap");
+
+:root{
+    --clr-celesteOscuro: #1B4552;
+    --clr-blanco:#e2dfdb;
+    --clr-verde: #63968c;
+    --clr-celestClaro: #548D9E;
+    --clr-marron:#9f7a55;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, a, input, textarea ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.contenedor-gral{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: var(--clr-blanco);
+
+}
+
+aside{
+    padding: 2rem;
+    position: sticky;
+    color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.logo{
+    font-size: 50px;
+}
+menu{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+.boton-menu{
+    background-color: transparent;
+    border: 0;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display:flex;
+    gap: 1rem;
+    font-weight: 600;
+
+}
+.bi-hand-index-thumb{
+    transform: rotateZ(90deg);
+    
+}
+
+
+main{
+    background-color: var(--clr-celesteOscuro);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+
+}
+
+.contenedor-prod{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+
+
+}
+
+.imagen-producto{
+    max-width: 100%;
+    border-radius: 1rem;
+
+}
+
+.detalles-producto{
+    background-color: var(--clr-celestClaro);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+
+
+
+}
+.titulo-ppal{
+    color: var(--clr-blanco);
+    font-size: 2rem;
+    padding: 1rem;
+}
+.titulo-producto{
+font-size: 22px ;
+}
+
+.agregar-producto{
+    border: 0;
+    background-color: var(--clr-celesteOscuro);
+    border-radius: 1rem;
+    color: var(--clr-blanco);
+    padding: 0.5rem;
+    border: 2px solid var(--clr-celesteOscuro);
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.agregar-producto:hover{
+background-color: var(--clr-celestClaro);
+
+}
+footer{
+    background: var(--clr-verde);
+}
+
