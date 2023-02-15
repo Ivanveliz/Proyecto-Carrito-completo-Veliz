@@ -21,13 +21,13 @@
             <nav>
                 <ul class="menu">
                     <li><button id="todos" class=" boton-menu boton-cat active"><i class="bi bi-hand-index-thumb"></i>Todos los productos</button></li>
-                    <li><button id="boton-camisas" class=" boton-menu boton-cat"><i class="bi bi-hand-index-thumb"></i>Camisas</button>
+                    <li><button id="camisas" class=" boton-menu boton-cat"><i class="bi bi-hand-index-thumb"></i>Camisas</button>
                     </li>
                     <li><button id="pantalones" class=" boton-menu boton-cat"><i class="bi bi-hand-index-thumb"></i>Pantalones</button>
                     </li>
                     <li><button id="remeras" class=" boton-menu boton-cat"><i class="bi bi-hand-index-thumb"></i>Remeras</button>
                     </li>
-                    <li><a class="boton-carrito" href="./carrito.html"><i class="bi bi-cart"></i> Carrito <span class="numero">0</span></a></li>
+                    <li><a class="boton-carrito boton-menu" href="./carrito.html"><i class="bi bi-cart"></i> Carrito <span id="numero" class="numero">12</span></a></li>
                 </ul>
             </nav>
             </aside>
@@ -35,9 +35,13 @@
         <!-- parte principal -->
         
             <main>
-            <h2 class="titulo-ppal">Todos los productos</h2>
+            <h2 id="titulo-principal" class="titulo-ppal" >Todos los productos</h2>
             <!-- contenedor ppal de todas las tarjetas de productos -->
             <div id="contenedor-productos" class="contenedor-prod">
+        <!-- los productos se cargan desde Js -->
+
+
+
                 <!-- <div class="producto">
                     <img class="imagen-producto" src="img/pantalon/pantalon 1.jfif" alt="" height="350px">
                     <div class="detalles-producto">
@@ -59,19 +63,16 @@
     <script src="apps.js"></script>
 </body>
 <footer>
-    <div class="pie">
-        <div class="ub">
-            <i class="fa-solid fa-location-dot"></i> Rosario, Agentina
+        <div class="ubicacion">
+            <i class="bi bi-geo-alt-fill"></i><p class="parrafo-footer">Rosario, Santa Fe, Argentina</p>
         </div>
-        <div class="der">
-
-            <i class="fa-solid fa-motorcycle"></i>Nomade IND. Todos los derechos reservados. <i
-                class="fa-solid fa-motorcycle"></i>
+        <div class="derechos">
+            <i class="bi bi-c-circle"></i><p class="texto-derechos">NomadeIND. Todos los derechos reservados</p>
         </div>
-        <div class="redes"><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.whatsapp.com/"> <i class="fa-brands fa-whatsapp"></i></a>
+        <div class="redes">
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
         </div>
-    </div>
 
 
 </footer>
