@@ -6,12 +6,16 @@ const carritoProductos = document.querySelector("#carrito-productos");
 const carritoAcciones = document.querySelector("#carrito-acciones");
 const carritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar = document.querySelectorAll(".carrito-producto-borrar")
+const botonVaciarCarrito = document.querySelector("#boton-vaciar-carrito");
+const total = document.querySelector("#total");
+const botonComprarCarrito = document.querySelector("#boton-comprar-carrito");
+
 
 //agrego y saco las clases para que vea lo que  yo quiero
 
 function cargarProductosCarrito(){
 
-    if (productosEnCarrito){
+    if (productosEnCarrito && productosEnCarrito.length > 0){
 
         carritoVacio.classList.add("ocultar")
         carritoProductos.classList.remove("ocultar")
@@ -57,12 +61,12 @@ function cargarProductosCarrito(){
     }
         
     actualizarbotonEliminar()
+    totalProductos()
     }
 
     cargarProductosCarrito()
 
 
-    actualizarbotonEliminar()
 
 function actualizarbotonEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-borrar");
@@ -74,9 +78,39 @@ function actualizarbotonEliminar() {
 
 function eliminarDelCarrito (e){
     let identificadorBoton = e.currentTarget.id;
-    const productoEliminado = productosEnCarrito.find(producto => producto.id === identificadorBoton)
     const index = productosEnCarrito.findIndex(producto => producto.id === identificadorBoton)
-    
-    
+    console.log(productosEnCarrito)
+    productosEnCarrito.splice(index, 1)
+    console.log(productosEnCarrito)
+    cargarProductosCarrito()
+
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
 }
 
+
+
+botonVaciarCarrito.addEventListener("click", vaciarCarrito)
+
+function vaciarCarrito(){
+    productosEnCarrito.length = 0
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+    cargarProductosCarrito()
+
+}
+
+function totalProductos(){
+    const totalProd =  productosEnCarrito.reduce((acumulador, producto) => acumulador + (producto.precio * producto.cantidad), 0);
+    total.innerText =  ` $${totalProd}`
+}   
+
+botonComprarCarrito.addEventListener("click", comprarCarrito)
+function comprarCarrito(){
+
+    productosEnCarrito.length = 0
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+
+    carritoVacio.classList.add("ocultar")
+    carritoProductos.classList.add("ocultar")
+    carritoAcciones.classList.add("ocultar")
+    carritoComprado.classList.remove("ocultar")
+}
