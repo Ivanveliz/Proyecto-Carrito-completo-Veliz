@@ -1,75 +1,23 @@
-//array de productos ejemplos
+// alert de bienvenido
+Swal.fire({
+    title: 'Bienvenidx!',
+    text: 'Este es mi proyecto final del curso de JS',
+    imageUrl: './img/meme.jfif',
+    imageWidth: 194,
+    imageHeight: 259,
+    imageAlt: 'Custom image',
+    confirmButtonText: "Genial! EMPECEMOS"
+})
 
-const productos = [{
-        id: "remera01",
-        titulo: "Remera 01",
-        precio: 1000,
-        imagen: "./img/remera/remera 1.jfif",
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        }
+// llamado al achivo JSON a través de fetch
+let productos = []
 
-    },
-    {
-        id: "remera02",
-        titulo: "Remera 02",
-        imagen: "./img/remera/remera 2.jfif",
-        precio: 1000,
-        categoria: {
-            nombre: "Remeras",
-            id: "remeras"
-        }
+fetch("./productos.json").then(response => response.json())
+    .then(data => {
+        productos = data
 
-    },
-
-    {
-        id: "pantalon01",
-        titulo: "Pantalon 01",
-        imagen: "img/pantalon/pantalon 1.jfif",
-        precio: 1000,
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        }
-
-    },
-    {
-        id: "pantalon02",
-        titulo: "Pantalon 02",
-        imagen: "img/pantalon/pantalon 1.jfif",
-        precio: 1000,
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        }
-
-    },
-    {
-        id: "camisa01",
-        titulo: "Camisa 01",
-        imagen: "./img/camisa/Camisa1.jpg",
-        precio: 1000,
-        categoria: {
-            nombre: "Camisas",
-            id: "camisas"
-        }
-
-    },
-    {
-        id: "camisa02",
-        titulo: "Camisa 02",
-        imagen: "./img/camisa/Camisa2.jpg",
-        precio: 1000,
-        categoria: {
-            nombre: "Camisas",
-            id: "camisas"
-        }
-
-    },
-
-]
-
+        cargarProductos(productos)
+    })
 
 // elementos del DOM
 const contenedorProductos = document.querySelector("#contenedor-productos")
@@ -84,7 +32,6 @@ const botonCarrito = document.querySelector("boton-carrito")
 function cargarProductos(productosElegidos) {
 
     contenedorProductos.innerHTML = "";
-
 
     productosElegidos.forEach(producto => {
 
@@ -105,7 +52,6 @@ function cargarProductos(productosElegidos) {
     actualizarBotonAgregar()
 }
 
-cargarProductos(productos)
 
 
 //funcion para filtrar los productos por categoria 
@@ -126,17 +72,14 @@ botonesCategoria.forEach(boton => {
 
             tituloPrincipal.innerText = "Todos los productos"
             cargarProductos(productos);
-
         }
-
-
     })
-
 })
 
 
 //funcion para los botones agregar producto
 function actualizarBotonAgregar() {
+
     botonesAgregarProducto = document.querySelectorAll(".agregar-producto");
 
     botonesAgregarProducto.forEach(boton => {
@@ -145,7 +88,7 @@ function actualizarBotonAgregar() {
 }
 
 
-
+// uso localstorage para que el numero del carrito se actualice o no según alla datos.
 let productosEnCarrito
 const productosEnCarritoLs = JSON.parse(localStorage.getItem("productos-en-carrito"))
 if (productosEnCarritoLs) {
@@ -156,16 +99,33 @@ if (productosEnCarritoLs) {
 }
 
 
-
-//esta funcion identifica el boton con el id del producto si coincide lo agrega al carrito, tambien identifica si es el mismo producto para eso le agregue una proiedad mas "cantidad" 
+//esta funcion identifica el boton con el id del producto. si coincide lo agrega al carrito, tambien identifica si es el mismo producto para eso le agregue una propiededad mas "cantidad" 
+//tambíen agrego el alert de "agregaste un producto"
 function agregarAlCarrito(e) {
+    Toastify({
+        text: "Agregaste un producto",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: `right`, // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to left, #1B4552, #548D9E)",
+            borderRadius: "1rem",
+            fontSize: ".75rem",
+            textTransform: "upperCase"
+
+
+        },
+        onClick: function () {} // Callback after click
+    }).showToast();
+
 
     const identificadorBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === identificadorBoton);
 
-
     if (productosEnCarrito.some(producto => producto.id === identificadorBoton)) {
-
         const index = productosEnCarrito.findIndex(producto => producto.id === identificadorBoton)
         productosEnCarrito[index].cantidad++;
 

@@ -1,0 +1,69 @@
+[{
+    "id": "remera01",
+    "titulo": "Remera 01",
+    "precio": 1000,
+    "imagen": "./img/remera/remera 1.jfif",
+    "categoria": {
+        "nombre": "Remeras",
+        "id": "remeras"
+    }
+
+},
+{
+    "id": "remera02",
+    "titulo": "Remera 02",
+    "imagen": "./img/remera/remera 2.jfif",
+    "precio": 1000,
+    "categoria": {
+        "nombre": "Remeras",
+        "id": "remeras"
+    }
+
+},
+
+{
+    "id": "pantalon01",
+    "titulo": "Pantalon 01",
+    "imagen": "img/pantalon/pantalon 1.jfif",
+    "precio": 1000,
+    "categoria": {
+        "nombre": "Pantalones",
+        "id": "pantalones"
+    }
+
+},
+{
+    "id": "pantalon02",
+    "titulo": "Pantalon 02",
+    "imagen": "img/pantalon/pantalon 1.jfif",
+    "precio": 1000,
+    "categoria": {
+        "nombre": "Pantalones",
+        "id": "pantalones"
+    }
+
+},
+{
+    "id": "camisa01",
+    "titulo": "Camisa 01",
+    "imagen": "./img/camisa/Camisa1.jpg",
+    "precio": 1000,
+    "categoria": {
+        "nombre": "Camisas",
+        "id": "camisas"
+    }
+
+},
+{
+    "id": "camisa02",
+    "titulo": "Camisa 02",
+    "imagen": "./img/camisa/Camisa2.jpg",
+    "precio": 1000,
+    "categoria": {
+        "nombre": "Camisas",
+        "id": "camisas"
+    }
+
+}
+
+]
